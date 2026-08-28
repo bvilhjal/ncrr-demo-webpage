@@ -651,3 +651,127 @@ figcaption,
   .hero { padding: 4.5rem 0; }
   .section { padding: 2.5rem 0; }
 }
+
+/* ---------- Icons (sprite: assets/img/icons.svg) ---------- */
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.22em;
+  flex: none;
+}
+
+.stat .icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  color: #7fa8c4;
+  margin-bottom: 0.35rem;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.5rem;
+}
+
+.card-head .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--gold);
+}
+
+.card-head h3 { margin: 0; font-size: 1.05rem; color: var(--navy); }
+
+.contact-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-card h3 .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--gold);
+}
+
+.link-groups h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link-groups h3 .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--gold);
+}
+
+.theme summary {
+  gap: 0.75rem;
+}
+
+.theme summary .theme-icon {
+  width: 1.45rem;
+  height: 1.45rem;
+  color: var(--au-blue);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.filter-label .icon { color: var(--au-blue); }
+
+/* ---------- Numbered publication list ---------- */
+
+.pub-list { counter-reset: pub; }
+
+.pub-list li {
+  position: relative;
+  padding-left: 3.2rem;
+  min-height: 2.6rem;
+}
+
+.pub-list li::before {
+  counter-increment: pub;
+  content: counter(pub);
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 2.1rem;
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.pub-year {
+  float: right;
+  margin-left: 0.8rem;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  padding: 0.12rem 0.45rem;
+}
+
+@media (max-width: 40rem) {
+  .pub-list li { padding-left: 0; }
+  .pub-list li::before { content: ""; }
+}

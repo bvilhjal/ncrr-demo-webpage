@@ -30,14 +30,36 @@ index.html            front page: hero, stats, featured research, projects
 about.html            about the centre + milestones
 research.html         overview, major projects, eight research themes
 registers.html        Danish registers list (filterable)
-publications.html     newest publications + link to full list
+publications.html     200 most recent publications (filterable, numbered)
 staff.html            staff directory (filterable)
 find-us.html          new address, directions, photos, map
 links.html            external resources
 assets/css/style.css  all styling
 assets/js/main.js     footer year + list filters
-assets/img/           building photos (JPEG, supplied for the demo)
+assets/img/           building photos (supplied for the demo), campus photos,
+                      icon sprite, QR code
+tools/fetch_publications.py  regenerates the publication list from OpenAlex
+assets/data/publications.json  normalized publication data
 ```
+
+## Publication data
+
+`publications.html` lists the 200 most recent NCRR publications, fetched from
+the [OpenAlex](https://openalex.org) API (affiliation search, sorted by
+publication date) because the live site's Pure feed was unavailable. To
+refresh:
+
+```sh
+python3 tools/fetch_publications.py 200
+```
+
+## Image credits
+
+- Bartholins Allé 2 photos: supplied for this demo; replace with official AU
+  photography before going live.
+- `campus-main-building.jpg`: Villy Fink Isaksen / Wikimedia Commons, CC BY-SA 4.0.
+- `campus-lakes.jpg`: RhinoMind / Wikimedia Commons, CC BY-SA 4.0.
+- Icons: hand-drawn feather-style SVG sprite (MIT-style, in-repo).
 
 ## Run locally
 
