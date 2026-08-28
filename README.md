@@ -1,5 +1,7 @@
 # NCRR demo webpage
 
+Live demo: <https://bvilhjal.github.io/ncrr-demo-webpage/>
+
 Demo redesign of the NCRR website (https://ncrr.au.dk/) for the National
 Centre for Register-based Research, now at the Department of Public Health
 (Institut for Folkesundhed), Aarhus University. Plain HTML/CSS/JS — no build
