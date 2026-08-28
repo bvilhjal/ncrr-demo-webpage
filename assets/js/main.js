@@ -1,20 +1,38 @@
 // NCRR demo webpage scripts
 
-// Keep the footer year current.
 document.addEventListener("DOMContentLoaded", function () {
-  var yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
-  }
-});
+  // Footer year.
+  document.querySelectorAll("#year").forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
 
-// Smooth-scroll for in-page navigation links.
-document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-  link.addEventListener("click", function (event) {
-    var target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth" });
+  // Generic list filter: input[data-filter-target] hides items in the target
+  // list whose text does not match the query.
+  var inputs = document.querySelectorAll("[data-filter-target]");
+  inputs.forEach(function (input) {
+    var list = document.querySelector(input.getAttribute("data-filter-target"));
+    if (!list) return;
+
+    var note = document.querySelector(input.getAttribute("data-filter-note"));
+    var items = Array.prototype.slice.call(
+      list.querySelectorAll("[data-filter-item]")
+    );
+
+    function applyFilter() {
+      var q = input.value.trim().toLowerCase();
+      var shown = 0;
+      items.forEach(function (item) {
+        var match = item.textContent.toLowerCase().indexOf(q) !== -1;
+        item.classList.toggle("hidden-by-filter", !match);
+        if (match) shown++;
+      });
+      if (note) {
+        note.textContent = q
+          ? shown + " of " + items.length + " match \u201c" + input.value.trim() + "\u201d"
+          : "";
+      }
     }
+
+    input.addEventListener("input", applyFilter);
   });
 });
